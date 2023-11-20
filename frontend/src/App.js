@@ -1,16 +1,18 @@
 import React from "react";
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { Container, AppBar, Grow, Grid } from '@material-ui/core';
 import eryneczek from './images/eryneczek.png';
 import Posts from "./components/Posts/Posts.js";
 import Form from "./components/Form/Form.js";
+import useStyles from './styles.js';
 
 const App = () => {
 
+    const classes = useStyles();
+
     return(
         <Container maxwidth="lg">
-            <AppBar position="static" color="inherit">
-                <Typography variant="h2" align="center">E-ryneczek</Typography>
-                <img src={eryneczek} alt="e-ryneczek" height="60px"/>
+            <AppBar className={classes.appBar} position="static" color="inherit">
+                <img className={classes.image} src={eryneczek} alt="e-ryneczek" height="60px"/>
             </AppBar>
             <Grow in>
                  <Container>
