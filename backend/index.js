@@ -9,11 +9,11 @@ dotenv.config();
 
 const app = express();
 
-app.use('/posts', postRoutes);
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
+app.use('/posts', postRoutes);
 const PORT = process.env.E_RYNECZEK_BACKEND_PORT;
 mongoose.connect(process.env.E_RYNECZEK_CONNECTION_URL)
                 .then(() => app.listen(PORT, () => console.log(`Sever running on port ${PORT}`)))
