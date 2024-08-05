@@ -3,9 +3,8 @@ import { useDropzone } from "react-dropzone";
 
 import useStyles from './styles.js';
 
-const Dropzone = ({ setPostData, postData }) => {
-
-    const [fileName, setFileName] = useState('Add photo');
+const Dropzone = ({ setPostData, postData, fileName, setFileName}) => {
+    
     const classes = useStyles();
 
     const onDrop = useCallback((acceptedFile) => {

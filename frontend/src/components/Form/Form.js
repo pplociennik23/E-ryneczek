@@ -11,12 +11,17 @@ const Form = ({currentId, setCurrentId}) => {
     const [postData, setPostData] = useState({
         creator: '', title: '', message: '', tags: '', selectedFile: ''
     });
+    const [fileName, setFileName] = useState('Add photo');
     const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
     const classes = useStyles();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(post) setPostData(post);
+        if(post) 
+        {
+            setPostData(post);
+            setFileName('Change photo');
+        }
     }, [post])
 
     const handleSubmit = (e) => {
@@ -35,6 +40,7 @@ const Form = ({currentId, setCurrentId}) => {
         setCurrentId(null);
         setPostData({
             creator: '', title: '', message: '', tags: '', selectedFile: ''});
+        setFileName('Add photo');
     }
 
     return(
@@ -66,7 +72,7 @@ const Form = ({currentId, setCurrentId}) => {
                     fullWidth 
                     value={postData.tags} onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')}) }/>
                 <div className={classes.fileInput}>
-                    <Dropzone setPostData={setPostData} postData={postData} />
+                    <Dropzone setPostData={setPostData} postData={postData} setFileName={setFileName} fileName={fileName} />
                 </div>
                 <Button 
                     className={classes.buttonSubmit}
