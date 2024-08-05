@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post/Post.js";
 import useStyles from './styles.js';
+import mockPosts from '../../mock/mockPosts.js'
 import { useSelector } from "react-redux";
 import { Grid, CircularProgress } from "@material-ui/core";
 
@@ -8,6 +9,7 @@ const Posts = ({setCurrentId}) => {
 
     const classes = useStyles();
     const posts = useSelector((state) => state.posts);
+    // const posts = mockPosts;
 
     console.log(posts);
     
