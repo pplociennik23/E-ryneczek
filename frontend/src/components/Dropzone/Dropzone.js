@@ -20,23 +20,16 @@ const Dropzone = ({ setPostData, postData, fileName, setFileName}) => {
     
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, multiple: false });
     return ( 
-        <div {...getRootProps()} className="">
+        <div {...getRootProps()} className={classes.fileInputContainer}>
             <input {...getInputProps} 
                 value={fileName} 
                 readOnly 
-                style={{ 
-                    marginTop: '10px', 
-                    padding: '10px', 
-                    width: '100%', 
-                    boxSizing: 'border-box', 
-                    textAlign: 'center', 
-                    border: '1px solid #ccc' 
-                    }}  
+                className={classes.fileInput}
             />
             {isDragActive ? ( 
-                <p className={classes.inputInfoText}>Drop the files here ... </p>
+                <p className={classes.fileInputInfoText}>Drop the files here ... </p>
             ) : ( 
-                <p className={classes.inputInfoText}>Drag and drop files here or click to select files... </p>
+                <p className={classes.fileInputInfoText}>Drag and drop files here or click to select files... </p>
             )}
         </div>
     )
