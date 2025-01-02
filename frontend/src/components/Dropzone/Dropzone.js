@@ -1,12 +1,10 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
-import useStyles from './styles.js';
+import styles from './Dropzone.module.css'
 
 const Dropzone = ({ setPostData, postData, fileName, setFileName}) => {
     
-    const classes = useStyles();
-
     const onDrop = useCallback((acceptedFile) => {
 
         setFileName(acceptedFile[0].name);
@@ -20,16 +18,16 @@ const Dropzone = ({ setPostData, postData, fileName, setFileName}) => {
     
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, multiple: false });
     return ( 
-        <div {...getRootProps()} className={classes.fileInputContainer}>
+        <div {...getRootProps()} className={styles.fileInputContainer}>
             <input {...getInputProps} 
                 value={fileName} 
                 readOnly 
-                className={classes.fileInput}
+                className={styles.fileInput}
             />
             {isDragActive ? ( 
-                <p className={classes.fileInputInfoText}>Drop the files here ... </p>
+                <p className={styles.fileInputInfoText}>Drop the files here ... </p>
             ) : ( 
-                <p className={classes.fileInputInfoText}>Drag and drop files here or click to select files... </p>
+                <p className={styles.fileInputInfoText}>Drag and drop files here or click to select files... </p>
             )}
         </div>
     )

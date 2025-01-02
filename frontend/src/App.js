@@ -1,17 +1,16 @@
 import React , { useEffect, useState } from "react";
-import { Container, AppBar, Grow, Grid } from '@material-ui/core';
+import { Container, AppBar, Grow, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/posts.js'
 
-import useStyles from './styles.js';
-import eryneczek from './images/eryneczek.png';
 import Posts from "./components/Posts/Posts.js";
 import Form from "./components/Form/Form.js";
 
+import eryneczek from './images/eryneczek.png';
+import styles from './App.module.css'
 
 const App = () => {
     const [currentId, setCurrentId] = useState(null);
-    const classes = useStyles();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,12 +19,12 @@ const App = () => {
 
     return(
         <Container maxwidth="lg">
-            <AppBar className={classes.appBar} position="static" color="inherit">
-                <img className={classes.image} src={eryneczek} alt="e-ryneczek" height="60px"/>
+            <AppBar className={styles.appBar} position="static" color="inherit">
+                <img className={styles.image} src={eryneczek} alt="e-ryneczek" height="60px"/>
             </AppBar>
             <Grow in>
                  <Container>
-                    <Grid container className={classes.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
+                    <Grid container className={styles.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
                         <Grid item xs={12} sm={7}>
                             <Posts setCurrentId={setCurrentId}/>
                         </Grid>

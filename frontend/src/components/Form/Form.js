@@ -1,10 +1,11 @@
 import React, { useState, useEffect} from 'react';
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
-import Dropzone from '../Dropzone/Dropzone.js';
-import useStyles from './styles.js';
+import { TextField, Button, Typography, Paper } from "@mui/material";
 import { useDispatch } from 'react-redux';
 import { createPost, updatePost} from '../../actions/posts.js';
 import { useSelector } from "react-redux";
+
+import Dropzone from '../Dropzone/Dropzone.js';
+import styles from './Form.module.css'
 
 const Form = ({currentId, setCurrentId}) => {
 
@@ -13,7 +14,6 @@ const Form = ({currentId, setCurrentId}) => {
     });
     const [fileName, setFileName] = useState('Add photo');
     const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
-    const classes = useStyles();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -44,8 +44,8 @@ const Form = ({currentId, setCurrentId}) => {
     }
 
     return(
-        <Paper className={classes.paper}>
-            <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}>
+        <Paper className={styles.paper}>
+            <form autoComplete="off" noValidate className={styles.form} onSubmit={handleSubmit}>
                 <Typography variant="h6">{currentId ? 'Edit' : 'Create'} an offer</Typography>
                 <TextField 
                     name="creator" 
@@ -71,11 +71,11 @@ const Form = ({currentId, setCurrentId}) => {
                     label="Tags" 
                     fullWidth 
                     value={postData.tags} onChange={(e) => setPostData({...postData, tags: e.target.value.split(',')}) }/>
-                <div className={classes.fileInput}>
+                <div className={styles.fileInput}>
                     <Dropzone setPostData={setPostData} postData={postData} setFileName={setFileName} fileName={fileName} />
                 </div>
                 <Button 
-                    className={classes.buttonSubmit}
+                    className={styles.buttonSubmit}
                     variant="contained"
                     color="primary"
                     size="large"
