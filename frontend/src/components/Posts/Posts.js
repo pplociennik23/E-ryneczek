@@ -8,11 +8,10 @@ import { Grid, CircularProgress } from "@mui/material";
 
 const Posts = ({setCurrentId}) => {
 
-    const posts = useSelector((state) => state.posts);
-    //const posts = mockPosts;
+    const useDatabase = process.env.REACT_APP_USE_DATABASE === 'true';
+    const databasePosts = useSelector((state) => state.posts);
+    const posts = useDatabase ? databasePosts : mockPosts;
 
-    console.log(posts);
-    
     return(
             !posts.length ? <CircularProgress/> : (
             <Grid className={styles.mainContainer} container alignItems="stretch" spacing={3}> 
