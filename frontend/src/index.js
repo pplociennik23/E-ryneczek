@@ -9,7 +9,7 @@ import './index.css';
 
 const store = configureStore({
      reducer: reducers,
-     middleware: [thunk],
+     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 })
 
 ReactDOM.render(

@@ -9,7 +9,7 @@ import { Grid, CircularProgress } from "@mui/material";
 const Posts = ({setCurrentId}) => {
 
     const posts = useSelector((state) => state.posts);
-    // const posts = mockPosts;
+    //const posts = mockPosts;
 
     console.log(posts);
     
