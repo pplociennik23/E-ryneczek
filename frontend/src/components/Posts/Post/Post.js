@@ -5,6 +5,7 @@ import styles from './Post.module.css'
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts.js';
+import TextDetails from "../../TextDetails/TextDetails.js";
 
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -31,7 +32,7 @@ const Post = ({post, setCurrentId}) => {
             </div>
             <Typography className={styles.title} variant="h5" gutterBottom>{post.title}</Typography>
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
+                <TextDetails message={post.message}/>
             </CardContent>
             <CardActions className={styles.cardActions}>
                 <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}>
