@@ -3,7 +3,7 @@ import { Container, AppBar, Grow, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/posts.js'
 
-import Posts from "./components/Posts/Posts.js";
+import PostsGrid from "./components/PostsGrid/PostsGrid.js";
 import Form from "./components/Form/Form.js";
 
 import eryneczek from './images/eryneczek.png';
@@ -26,7 +26,7 @@ const App = () => {
                  <Container>
                     <Grid container className={styles.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
                         <Grid item xs={12} sm={7}>
-                            <Posts setCurrentId={setCurrentId}/>
+                            <PostsGrid setCurrentId={setCurrentId}/>
                         </Grid>
                         <Grid item xs={12} sm={4}>
                             <Form  currentId={currentId} setCurrentId={setCurrentId}/>

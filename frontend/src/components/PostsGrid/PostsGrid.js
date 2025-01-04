@@ -1,12 +1,12 @@
 import React from "react";
-import Post from "./Post/Post.js";
+import Post from "../Post/Post.js";
 import mockPosts from '../../mock/mockPosts.js'
-import styles from './Posts.module.css'
+import styles from './PostsGrid.module.css'
 
 import { useSelector } from "react-redux";
 import { Grid, CircularProgress } from "@mui/material";
 
-const Posts = ({setCurrentId}) => {
+const PostsGrid = ({setCurrentId}) => {
 
     const useDatabase = process.env.REACT_APP_USE_DATABASE === 'true';
     const databasePosts = useSelector((state) => state.posts);
@@ -27,4 +27,4 @@ const Posts = ({setCurrentId}) => {
     );
 }
 
-export default Posts;
+export default PostsGrid;

@@ -4,8 +4,8 @@ import styles from './Post.module.css'
 
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { deletePost, likePost } from '../../../actions/posts.js';
-import TextDetails from "../../TextDetails/TextDetails.js";
+import { deletePost, likePost } from '../../actions/posts.js';
+import TextDetails from "../TextDetails/TextDetails.js";
 
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
