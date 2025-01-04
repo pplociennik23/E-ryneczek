@@ -14,7 +14,7 @@ const Dropzone = ({ setPostData, postData, fileName, setFileName}) => {
             setPostData({ ...postData, selectedFile: file});
         };
         reader.readAsDataURL(acceptedFile[0]);
-     }, [setPostData, postData]);
+     }, [setPostData, postData, setFileName]);
     
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, multiple: false });
     return ( 
