@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { TextField, Button, Typography, Paper } from "@mui/material";
+import { TextField, Box, Button, Typography, Paper } from "@mui/material";
 import { useDispatch } from 'react-redux';
 import { createPost, updatePost} from '../../actions/posts.js';
 import { useSelector } from "react-redux";
@@ -74,15 +74,16 @@ const Form = ({currentId, setCurrentId}) => {
                 <div className={styles.fileInput}>
                     <Dropzone setPostData={setPostData} postData={postData} setFileName={setFileName} fileName={fileName} />
                 </div>
-                <Button 
-                    className={styles.buttonSubmit}
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    type="submit"
-                    fullWidth>
-                    Submit
-                </Button>
+                <Box className={styles.submitButtonContainer} mb={1}>
+                    <Button 
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        type="submit"
+                        fullWidth>
+                        Submit
+                    </Button>
+                </Box>
                 <Button 
                     variant="contained"
                     color="secondary"

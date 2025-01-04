@@ -13,6 +13,6 @@
   margin: 10px 0;
 }
 
-.buttonSubmit {
-  margin-bottom: 10px;
+.submitButtonContainer{
+  width: 100%;
 }
