@@ -1,12 +1,11 @@
 import React , { useEffect, useState } from "react";
-import { Container, AppBar, Grow, Grid } from '@mui/material';
+import { Container, Grow, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/posts.js'
 
+import Navbar from "./components/Navbar/Navbar.js";
 import PostsGrid from "./components/PostsGrid/PostsGrid.js";
 import Form from "./components/Form/Form.js";
-
-import eryneczek from './images/eryneczek.png';
 import styles from './App.module.css'
 
 const App = () => {
@@ -19,9 +18,7 @@ const App = () => {
 
     return(
         <Container maxwidth="lg">
-            <AppBar className={styles.appBar} position="static" color="inherit">
-                <img className={styles.image} src={eryneczek} alt="e-ryneczek"/>
-            </AppBar>
+            <Navbar/>
             <Grow in>
                  <Container>
                     <Grid container className={styles.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
